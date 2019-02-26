@@ -1,24 +1,6 @@
 #
 # ~/.bashrc
 #
-echo "
-         _nnnn_		|
-        dGGGGMMb	| FOREVER LINUX
-       @p~qp~~qMb	|
-       M|@||@) M|	| #############
-       @,----.JM|	|
-      JS^\r__/  qKL	| It's like you
-     dZP        qKRb	| control your
-    dZP          qKKb	| own computer
-   fZP            SMMb	|
-   HZM            MMMM	
-   FqM            MMMM	
- __| \".        |\rdS\"qML
- |    \`.       | \`' \rZq
-_)      \r.___.,|     .'
-\____   )MMMMMP|   .'
-     \`-'       \`--˝
-"
 
 [[ $- != *i* ]] && return
 
@@ -163,3 +145,7 @@ export YAOURT_COLORS="nb=1:pkg=1:ver=1;32:lver=1;45:installed=1;42:grp=1;34:od=1
 
 # Custom alias
 alias webdev='cd /srv/http/ && vim && cd ~/'
+alias wttr='curl wttr.in'
+
+VISUAL=vim; export VISUAL EDITOR=vim; export EDITOR
+
