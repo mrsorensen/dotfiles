@@ -74,7 +74,7 @@ format-connected = <ramp-signal> <label-connected>
 format-connected-foreground = ${xrdb:color7:#222}
 format-connected-background = ${xrdb:color0:#222}
 format-connected-padding = 2
-label-connected = %essid%
+label-connected = 
 
 format-disconnected =
 
@@ -183,10 +183,10 @@ interval = 5
 date =
 date-alt = " %Y-%m-%d"
 
-time = %H:%M
+time =  %A, %d. %B |  %H:%M
 time-alt = %H:%M:%S
 
-format-prefix = 
+format-prefix = 
 format-foreground = ${xrdb:color7:#222}
 format-background = ${xrdb:color0:#222}
 format-padding = 2
