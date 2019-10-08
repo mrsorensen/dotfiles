@@ -28,7 +28,7 @@ font-4 = FontAwesome:style=Regular:pixelsize=10
 
 modules-left = i3
 modules-center = date
-modules-right = battery wlan powermenu
+modules-right = banner pulseaudio battery wlan powermenu
 
 ;tray-position =
 ;tray-padding =
@@ -236,7 +236,7 @@ type = custom/script
 ; Available tokens:
 ;   %counter%
 ; Command to be executed (using "/usr/bin/env sh -c [command]")
-exec = /home/stranger/Scripts/banner.sh
+exec = /home/stranger/banner.sh
 
 
 ; Will the script output continous content?
@@ -245,9 +245,9 @@ tail = true
 
 ; Seconds to sleep between updates
 ; Default: 5 (0 if `tail = true`)
-interval = 0.5
+interval = 3600
 
-format-background = #A07354
+format-background = ${xrdb:color8:#222}
 format-padding = 4
 
 
@@ -349,6 +349,34 @@ bar-progress-fill = ─
 bar-progress-empty = ─
 
 
+[module/pulseaudio]
+type = internal/pulseaudio
+
+; Sink to be used, if it exists (find using `pacmd list-sinks`, name field)
+; If not, uses default sink
+sink = alsa_card.usb-BEHRINGER_UMC202HD_192k-0
+
+; Use PA_VOLUME_UI_MAX (~153%) if true, or PA_VOLUME_NORM (100%) if false
+; Default: true
+use-ui-max = true
+
+; Interval for volume increase/decrease (in percent points)
+; Default: 5
+interval = 5
+
+; Available tags:
+;   <label-volume> (default)
+;   <ramp-volume>
+;   <bar-volume>
+format-volume = <ramp-volume> <label-volume>
+
+label-muted =  muted
+label-muted-foreground = ${xrdb:color8:#222}
+
+
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
 
 [settings]
 screenchange-reload = true
