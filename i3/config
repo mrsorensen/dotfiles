@@ -44,8 +44,8 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
 
 # Use pactl to adjust volume in PulseAudio.
-bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set Master 10%+ && mpv ~/lighter.wav
-bindsym XF86AudioLowerVolume exec --no-startup-id amixer set Master 10%- && mpv ~/lighter.wav
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set Master 10%+ 
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer set Master 10%- 
 bindsym XF86AudioMute exec --no-startup-id amixer set Master toggle
 
 # Use Mouse+$mod to drag floating windows to their wanted position
@@ -183,59 +183,37 @@ bindsym $mod+r mode "resize"
 # Custom
 #
 #
-
-
-# Rofi
-bindsym $mod+d exec --no-startup-id rofi -show drun #-lines 32 -location 1 -width 30 
-
+# Autostart
+#
 # NO keyboard 
 exec --no-startup-id setxkbmap -layout no
-
 # Disable beep
 exec --no-startup-id xset -b
-
 # Polybar
 exec --no-startup-id polybar mybar
-
 # Pywal
 exec --no-startup-id compton -b; wal -R
-
 # Mouse scroll
-exec --no-startup-id xinput set-prop 14 298 1
-
+exec --no-startup-id xinput set-prop 14 303 1
 # Hide cursor with unclutter
 exec --no-startup-id unclutter --timeout 2
-
-# Lockscreen
-exec --no-startup-id xautolock -time 10 -locker "./blurlocker/blurlocker.sh"
-bindsym $mod+plus exec --no-startup-id "./blurlocker/blurlocker.sh"
-
-# Search
-bindsym $mod+f exec --no-startup-id echo "" | rofi -dmenu -p "Search" -l 0 | xargs -I{} chromium --app=https://duckduckgo.com/?q={}
-
-# URL
-bindsym $mod+shift+f exec --no-startup-id echo "" | rofi -dmenu -p "URL" -l 0 | xargs -I{} chromium --app=https://{}
-
-# Alsamixer
-bindsym $mod+m exec --no-startup-id urxvt -e alsamixer
-
 # Redshift
 exec --no-startup-id redshift
-
-# Rtorrent
-exec --no-startup-id '/bin/bash rtorrent'
-
-# Themer
-bindsym $mod+t exec --no-startup-id "./themer.sh"
-
-# Select spotifyd speaker
-bindsym $mod+XF86AudioMute exec --no-startup-id "~/spotifyd-speakers/./spotifyd-speakers.sh"
-
-# Bookmarks
-bindsym $mod+b exec --no-startup-id "./rofi-bookmarks/bookmarks.sh"
-
-# Flashfocus (requires manual launch)
-exec_always --no-startup-id killall flashfocus && sleep 1 && flashfocus && sleep 1 && killall flashfocus && sleep 1 && flashfocus 
-
 # Autostart reaper when usb connected
-exec --no-startup-id "~/autostart-reaper.sh"
+# exec --no-startup-id "~/autostart-reaper/./autostart-reaper.sh"
+# MKV Unpacker
+# exec --no-startup-id "~/mkv-unpacker/./mup.sh"
+
+# Keybindings
+#
+# Rofi
+bindsym $mod+d exec --no-startup-id rofi -show drun #-lines 32 -location 1 -width 30 
+# Lockscreen
+exec --no-startup-id xautolock -time 15 -locker "./blurlocker/blurlocker.sh"
+bindsym $mod+plus exec --no-startup-id "./blurlocker/blurlocker.sh"
+# Wallpaper changer
+exec --no-startup-id "~/wallpaper-changer/./wpc.sh ~/Pictures/Wallpapers/Firewatch"
+# Themer
+bindsym $mod+t exec --no-startup-id "~/Scripts/./themer.sh"
+# Bookmarks
+bindsym $mod+f exec --no-startup-id "./rofi-bookmarks/rb.sh"

@@ -28,7 +28,7 @@ font-4 = FontAwesome:style=Regular:pixelsize=10
 
 modules-left = i3
 modules-center = date
-modules-right = banner pulseaudio battery wlan powermenu
+modules-right = pulseaudio battery wlan powermenu
 
 ;tray-position =
 ;tray-padding =
@@ -236,7 +236,7 @@ type = custom/script
 ; Available tokens:
 ;   %counter%
 ; Command to be executed (using "/usr/bin/env sh -c [command]")
-exec = /home/stranger/banner.sh
+exec = /home/stranger/banner/banner.sh
 
 
 ; Will the script output continous content?
@@ -245,7 +245,7 @@ tail = true
 
 ; Seconds to sleep between updates
 ; Default: 5 (0 if `tail = true`)
-interval = 3600
+interval = 5
 
 format-background = ${xrdb:color8:#222}
 format-padding = 4
@@ -377,6 +377,30 @@ label-muted-foreground = ${xrdb:color8:#222}
 ramp-volume-0 = 
 ramp-volume-1 = 
 ramp-volume-2 = 
+
+
+[module/backlight]
+type = internal/backlight
+card = acpi_video0
+
+format = <ramp>
+
+; Available tokens:
+;   %percentage% (default)
+label = %percentage%%
+
+; Only applies if <ramp> is used
+ramp-0 = 🌕
+ramp-1 = 🌔
+ramp-2 = 🌓
+ramp-3 = 🌒
+ramp-4 = 🌑
+
+; Only applies if <bar> is used
+bar-width = 10
+bar-indicator = |
+bar-fill = ─
+bar-empty = ─
 
 [settings]
 screenchange-reload = true
