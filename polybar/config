@@ -4,31 +4,32 @@ height = 27
 radius = 0
 fixed-center = true
 
-background = ${xrdb:color0:#222}
-foreground = ${xrdb:color7:#222}
+background = ${xrdb:color0}
+foreground = ${xrdb:color7}
 
-line-size = 3
-line-color =
+line-size = 0
+line-color = ${xrdb:color5}
 
 border-size = 0
 border-color =
 
 padding-left = 0
-padding-right = 2
+padding-right = 0
 
-module-margin-left = 1
-module-margin-right = 2
+module-margin-top = 1
+module-margin-left = 0
+module-margin-right = 0
 
-font-0 = Inconsolata:size=10;1
+font-0 = JetBrains Mono:pixelsize=9
 font-1 = FontAwesome:style=Regular:pixelsize=10
-font-2 = FontAwesome:style=Regular:pixelsize=10
-font-3 = FontAwesome:style=Regular:pixelsize=10
-font-4 = FontAwesome:style=Regular:pixelsize=10
+font-2 = Inconsolata for Powerline:pixelsize=10
+font-3 = TerminessTTFNerdFontMono:pixelsize=10
+font-4 = symbola:pixelsize=10
 
 
 modules-left = i3
-modules-center = date
-modules-right = pulseaudio battery wlan powermenu
+modules-center = title
+modules-right = pulseaudio battery wlan date
 
 ;tray-position =
 ;tray-padding =
@@ -43,26 +44,27 @@ index-sort = true
 wrapping-scroll = false
 
 label-mode-padding = 2
-label-mode-foreground = ${xrdb:color7:#222}
-label-mode-background = ${xrdb:color0:#222}
+label-mode-foreground = ${xrdb:color7}
+label-mode-background = ${xrdb:color0}
 
 label-focused = %index%
-label-focused-background = ${xrdb:color0:#222}
-label-focused-foreground = #5F8C6C
+label-focused-background = ${xrdb:color0}
+label-focused-foreground = ${xrdb:color4}
+label-focused-underline = ${xrdb:color2}
 label-focused-padding = 2
 
 label-unfocused = %index%
-label-unfocused-background = ${xrdb:color0:#222}
-label-unfocused-foreground = ${xrdb:color7:#222}
+label-unfocused-background = ${xrdb:color0}
+label-unfocused-foreground = ${xrdb:color7}
 label-unfocused-padding = 2
 
 label-visible = %index%
-label-visible-background = ${xrdb:color0:#222}
-label-visible-foreground = ${xrdb:color7:#222}
+label-visible-background = ${xrdb:color0}
+label-visible-foreground = ${xrdb:color7}
 label-visible-padding = 2
 
 label-urgent = %index%
-label-urgent-background = #BA2922
+label-urgent-background = ${xrdb:color3}
 label-urgent-padding = 2
 
 [module/wlan]
@@ -71,10 +73,10 @@ interface = wlp2s0
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
-format-connected-foreground = ${xrdb:color7:#222}
-format-connected-background = ${xrdb:color0:#222}
+format-connected-foreground = ${xrdb:color7}
+format-connected-background = ${xrdb:color0}
 format-connected-padding = 2
-label-connected = 
+label-connected =  %essid%
 
 format-disconnected =
 
@@ -83,7 +85,7 @@ ramp-signal-1 = 
 ramp-signal-2 = 
 ramp-signal-3 = 
 ramp-signal-4 = 
-ramp-signal-foreground = ${xrdb:color7:#222}
+ramp-signal-foreground = ${xrdb:color7}
 
 [module/battery]
 type = internal/battery
@@ -148,6 +150,17 @@ label-discharging = Discharging %percentage%%
 label-full = 
 
 
+format-full-padding = 2
+format-full-background = ${xrdb:color0}
+format-full-foreground = ${xrdb:color7}
+format-charging-padding = 2
+format-charging-background = ${xrdb:color0}
+format-charging-foreground = ${xrdb:color2}
+format-discharging-padding = 2
+format-discharging-background = ${xrdb:color0}
+format-discharging-foreground = ${xrdb:color1}
+
+
 ; Only applies if <ramp-capacity> is used
 ramp-capacity-0 = 
 ramp-capacity-1 = 
@@ -181,14 +194,12 @@ type = internal/date
 interval = 5
 
 date =
-date-alt = " %Y-%m-%d"
 
 time =  %A, %d. %B |  %H:%M
-time-alt = %H:%M:%S
 
 format-prefix = 
-format-foreground = ${xrdb:color7:#222}
-format-background = ${xrdb:color0:#222}
+format-foreground = ${xrdb:color7}
+format-background = ${xrdb:color0}
 format-padding = 2
 
 label = %date% %time%
@@ -201,11 +212,11 @@ expand-right = true
 format-spacing = 1
 
 label-open = 
-label-open-foreground = ${xrdb:color7:#222}
+label-open-foreground = ${xrdb:color7}
 label-close =  cancel
-label-close-foreground = ${xrdb:color7:#222}
+label-close-foreground = ${xrdb:color7}
 label-separator = |
-label-separator-foreground = ${xrdb:color7:#222}
+label-separator-foreground = ${xrdb:color7}
 
 
 menu-0-0 = reboot
@@ -247,7 +258,7 @@ tail = true
 ; Default: 5 (0 if `tail = true`)
 interval = 5
 
-format-background = ${xrdb:color8:#222}
+format-background = ${xrdb:color8}
 format-padding = 4
 
 
@@ -370,13 +381,22 @@ interval = 5
 ;   <bar-volume>
 format-volume = <ramp-volume> <label-volume>
 
+format-volume-background = ${xrdb:color0}
+format-volume-foreground = ${xrdb:color7}
+
+format-volume-padding = 2
+format-muted-padding = 2
+
 label-muted =  muted
-label-muted-foreground = ${xrdb:color8:#222}
+label-muted-foreground = ${xrdb:color7}
 
 
 ramp-volume-0 = 
 ramp-volume-1 = 
-ramp-volume-2 = 
+ramp-volume-2 = 
+ramp-volume-3 = 
+ramp-volume-4 = 
+ramp-volume-5 = 
 
 
 [module/backlight]
@@ -408,3 +428,25 @@ screenchange-reload = true
 [global/wm]
 margin-top = 0
 margin-bottom = 0
+
+
+[module/title]
+type = internal/xwindow
+; Available tags:
+;   <label> (default)
+format = <label>
+format-background = ${xrdb:color0}
+format-foreground = ${xrdb:color7}
+format-padding = 4
+
+; Available tokens:
+;   %title%
+; Default: %title%
+label = %title%
+label-maxlen = 50
+
+; Used instead of label when there is no window title
+; Available tokens:
+;   None
+label-empty = Desktop
+label-empty-foreground = ${xrdb:color7}
