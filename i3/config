@@ -24,9 +24,9 @@ hide_edge_borders none
 
 # Gaps
 gaps inner 20
-gaps outer 0
-smart_gaps on
-smart_borders on
+gaps outer 100
+#smart_gaps on
+#smart_borders on
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -53,6 +53,7 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+shift+Return exec i3 open
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -192,9 +193,9 @@ exec --no-startup-id xset -b
 # Polybar
 exec --no-startup-id polybar mybar
 # Pywal
-exec --no-startup-id compton -b; wal -R
+exec --no-startup-id picom;  wal -R
 # Mouse scroll
-exec --no-startup-id xinput set-prop 14 303 1
+#exec --no-startup-id xinput set-prop 14 303 1
 # Hide cursor with unclutter
 exec --no-startup-id unclutter --timeout 2
 # Redshift
@@ -209,8 +210,7 @@ exec --no-startup-id redshift
 # Rofi
 bindsym $mod+d exec --no-startup-id rofi -show drun #-lines 32 -location 1 -width 30 
 # Lockscreen
-exec --no-startup-id xautolock -time 15 -locker "./blurlocker/blurlocker.sh"
-bindsym $mod+plus exec --no-startup-id "./blurlocker/blurlocker.sh"
+bindsym $mod+plus exec --no-startup-id bash ~/screenlock.sh
 # Wallpaper changer
 exec --no-startup-id "~/wallpaper-changer/./wpc.sh ~/Pictures/Wallpapers/Firewatch"
 # Themer

@@ -7,5 +7,4 @@ Xft.hintstyle: hintslight
 Xft.lcdfilter: lcddefault
 URxvt.internalBorder:  40
 URxvt*scrollBar:                  false
-URxvt.font:                       xft:bitstream vera sans mono:size=9:antialias=true,xft:TerminessTTFNerdFontMono,xft:symbola:size=10:minspace=False
-
+URxvt.font:                       xft:Roboto Mono:pixelsize=11;3,xft.FontAwesome:style=Regular:pixelsize=10,xft:symbola:size=10:minspace=False

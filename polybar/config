@@ -28,8 +28,8 @@ font-4 = symbola:pixelsize=10
 
 
 modules-left = i3
-modules-center = title
-modules-right = pulseaudio battery wlan date
+modules-center = title 
+modules-right =  script cpu wlan clock date 
 
 ;tray-position =
 ;tray-padding =
@@ -49,7 +49,7 @@ label-mode-background = ${xrdb:color0}
 
 label-focused = %index%
 label-focused-background = ${xrdb:color0}
-label-focused-foreground = ${xrdb:color4}
+label-focused-foreground = ${xrdb:color2}
 label-focused-underline = ${xrdb:color2}
 label-focused-padding = 2
 
@@ -69,13 +69,13 @@ label-urgent-padding = 2
 
 [module/wlan]
 type = internal/network
-interface = wlp2s0
+interface = wlo1
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
 format-connected-foreground = ${xrdb:color7}
 format-connected-background = ${xrdb:color0}
-format-connected-padding = 2
+format-connected-padding = 4
 label-connected =  %essid%
 
 format-disconnected =
@@ -85,7 +85,8 @@ ramp-signal-1 = 
 ramp-signal-2 = 
 ramp-signal-3 = 
 ramp-signal-4 = 
-ramp-signal-foreground = ${xrdb:color7}
+ramp-signal-foreground = ${xrdb:color2}
+ramp-signal-padding = 1
 
 [module/battery]
 type = internal/battery
@@ -193,11 +194,11 @@ animation-discharging-framerate = 500
 type = internal/date
 interval = 5
 
-date =
+time = %d. %B
 
-time =  %A, %d. %B |  %H:%M
-
-format-prefix = 
+format-prefix = 
+format-prefix-padding = 1
+format-prefix-foreground = ${xrdb:color4}
 format-foreground = ${xrdb:color7}
 format-background = ${xrdb:color0}
 format-padding = 2
@@ -210,6 +211,21 @@ type = custom/menu
 expand-right = true
 
 format-spacing = 1
+
+[module/clock]
+type = internal/date
+interval = 5
+
+time = %H:%M
+
+format-prefix = 
+format-prefix-padding = 1
+format-prefix-foreground = ${xrdb:color3}
+format-foreground = ${xrdb:color7}
+format-background = ${xrdb:color0}
+format-padding = 2
+
+label = %date% %time%
 
 label-open = 
 label-open-foreground = ${xrdb:color7}
@@ -271,7 +287,28 @@ type = internal/cpu
 interval = 0.5
 
 format = <label>
-label = CPU %percentage%%
+format-prefix = 
+format-prefix-foreground = ${xrdb:color5}
+format-prefix-padding = 2
+label = %percentage:03%%
+
+ramp-load-spacing = 1
+ramp-load-0 = ▁
+ramp-load-1 = ▂
+ramp-load-2 = ▃
+ramp-load-3 = ▄
+ramp-load-4 = ▅
+ramp-load-5 = ▆
+ramp-load-6 = ▇
+ramp-load-7 = █
+ramp-load-0-foreground = ${xrdb:color4}
+ramp-load-1-foreground = ${xrdb:color1}
+ramp-load-2-foreground = ${xrdb:color2}
+ramp-load-3-foreground = ${xrdb:color3}
+ramp-load-4-foreground = ${xrdb:color5}
+ramp-load-5-foreground = ${xrdb:color6}
+ramp-load-6-foreground = ${xrdb:color7}
+ramp-load-7-foreground = ${xrdb:color8}
 
 
 [module/mpd]
@@ -422,6 +459,78 @@ bar-indicator = |
 bar-fill = ─
 bar-empty = ─
 
+
+
+[module/filesystem]
+type = internal/fs
+
+; Mountpoints to display
+mount-0 = /
+
+; Seconds to sleep between updates
+; Default: 30
+interval = 10
+
+; Display fixed precision values
+; Default: false
+fixed-values = true
+
+; Spacing between entries
+; Default: 2
+spacing = 4
+
+; Available tags:
+;   <label-mounted> (default)
+;   <bar-free>
+;   <bar-used>
+;   <ramp-capacity>
+format-mounted = <ramp-capacity>
+format-mounted-prefix = 
+format-mounted-prefix-foreground = ${xrdb:color2}
+
+ramp-capacity-padding = 2
+ramp-capacity-spacing = 1
+ramp-capacity-7 = ▁
+ramp-capacity-6 = ▂
+ramp-capacity-5 = ▃
+ramp-capacity-4 = ▄
+ramp-capacity-3 = ▅
+ramp-capacity-2 = ▆
+ramp-capacity-1 = ▇
+ramp-capacity-0 = █
+ramp-capacity-0-foreground = ${xrdb:color4}
+ramp-capacity-1-foreground = ${xrdb:color1}
+ramp-capacity-2-foreground = ${xrdb:color2}
+ramp-capacity-3-foreground = ${xrdb:color3}
+ramp-capacity-4-foreground = ${xrdb:color5}
+ramp-capacity-5-foreground = ${xrdb:color6}
+ramp-capacity-6-foreground = ${xrdb:color7}
+ramp-capacity-7-foreground = ${xrdb:color8}
+
+
+; Available tags:
+;   <label-unmounted> (default)
+format-unmounted = <label-unmounted>
+
+; Available tokens:
+;   %mountpoint%
+;   %type%
+;   %fsname%
+;   %percentage_free%
+;   %percentage_used%
+;   %total%
+;   %free%
+;   %used%
+; Default: %mountpoint% %percentage_free%%
+label-mounted = %mountpoint%: %percentage_free%% of %total%
+
+; Available tokens:
+;   %mountpoint%
+; Default: %mountpoint% is not mounted
+label-unmounted = %mountpoint%: not mounted
+label-unmounted-foreground = #55
+
+
 [settings]
 screenchange-reload = true
 
@@ -435,8 +544,11 @@ type = internal/xwindow
 ; Available tags:
 ;   <label> (default)
 format = <label>
+format-prefix = •••
+format-prefix-foreground = ${xrdb:color2}
+format-prefix-padding = 2
 format-background = ${xrdb:color0}
-format-foreground = ${xrdb:color7}
+format-foreground = ${xrdb:color3}
 format-padding = 4
 
 ; Available tokens:
@@ -450,3 +562,27 @@ label-maxlen = 50
 ;   None
 label-empty = Desktop
 label-empty-foreground = ${xrdb:color7}
+
+[module/memory]
+type = internal/memory
+
+; Seconds to sleep between updates
+; Default: 1
+interval = 3
+
+format = <label>
+label = RAM %gb_used%/%gb_total%
+format-prefix = 
+
+[module/script]
+type = custom/script
+
+format-padding = 2
+
+format-prefix = 
+format-prefix-padding = 2 
+format-prefix-foreground = ${xrdb:color1}
+
+exec = echo "Some message"
+tail = true
+interval = 60
