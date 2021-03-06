@@ -29,7 +29,7 @@ font-4 = symbola:pixelsize=10
 
 modules-left = i3
 modules-center = title 
-modules-right =  script cpu wlan clock date 
+modules-right =  wlan clock date 
 
 ;tray-position =
 ;tray-padding =
