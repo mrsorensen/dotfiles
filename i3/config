@@ -181,11 +181,12 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 
-# Custom
-#
-#
-# Autostart
-#
+#####################
+#		    #
+#     Autostart     #
+# 		    #
+#####################
+
 # NO keyboard 
 exec --no-startup-id setxkbmap -layout no
 # Disable beep
@@ -202,20 +203,15 @@ exec --no-startup-id wal -a 80 -i ~/Pictures/wallpaper.jpg -n && feh --bg-fill ~
 exec --no-startup-id unclutter --timeout 2
 # Redshift
 exec --no-startup-id redshift
-# Autostart reaper when usb connected
-# exec --no-startup-id "~/autostart-reaper/./autostart-reaper.sh"
-# MKV Unpacker
-# exec --no-startup-id "~/mkv-unpacker/./mup.sh"
 
-# Keybindings
-#
+#####################
+#		    #
+#    Keybindings    #
+# 		    #
+#####################
+
+
 # Rofi
 bindsym $mod+d exec --no-startup-id rofi -show drun #-lines 32 -location 1 -width 30 
 # Lockscreen
-bindsym $mod+plus exec --no-startup-id bash ~/screenlock.sh
-# Wallpaper changer
-exec --no-startup-id "~/wallpaper-changer/./wpc.sh ~/Pictures/Wallpapers/Firewatch"
-# Themer
-bindsym $mod+t exec --no-startup-id "~/Scripts/./themer.sh"
-# Bookmarks
-bindsym $mod+f exec --no-startup-id "./rofi-bookmarks/rb.sh"
+bindsym $mod+plus exec --no-startup-id bash ~/Documents/i3-pixel-lock/i3-pixel-lock.sh
