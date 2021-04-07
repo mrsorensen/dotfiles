@@ -28,7 +28,7 @@ font-4 = symbola:pixelsize=10
 
 
 modules-left = i3
-modules-center = title 
+modules-center = 
 modules-right =  wlan clock date 
 
 ;tray-position =
@@ -47,23 +47,23 @@ label-mode-padding = 2
 label-mode-foreground = ${xrdb:color7}
 label-mode-background = ${xrdb:color0}
 
-label-focused = %index%
+label-focused = 
 label-focused-background = ${xrdb:color0}
 label-focused-foreground = ${xrdb:color2}
 label-focused-underline = ${xrdb:color2}
 label-focused-padding = 2
 
-label-unfocused = %index%
+label-unfocused = 
 label-unfocused-background = ${xrdb:color0}
 label-unfocused-foreground = ${xrdb:color7}
 label-unfocused-padding = 2
 
-label-visible = %index%
+label-visible = 
 label-visible-background = ${xrdb:color0}
 label-visible-foreground = ${xrdb:color7}
 label-visible-padding = 2
 
-label-urgent = %index%
+label-urgent = 
 label-urgent-background = ${xrdb:color3}
 label-urgent-padding = 2
 

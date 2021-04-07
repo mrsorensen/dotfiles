@@ -1,4 +1,4 @@
-Xft.dpi:       96
+Xft.dpi:       108
 Xft.antialias: true
 Xft.hinting:   true
 Xft.rgba:      rgb
@@ -7,4 +7,4 @@ Xft.hintstyle: hintslight
 Xft.lcdfilter: lcddefault
 URxvt.internalBorder:  40
 URxvt*scrollBar:                  false
-URxvt.font:                       9x15,xft:TerminessTTFNerdFontMono
+URxvt.font:                       xft:Source Code Pro:size=10, xft:TerminessTTFNerdFontMono:size=12

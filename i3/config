@@ -192,8 +192,10 @@ exec --no-startup-id setxkbmap -layout no
 exec --no-startup-id xset -b
 # Polybar
 exec --no-startup-id polybar mybar
+# Picom
+exec --no-startup-id picom;
 # Pywal
-exec --no-startup-id picom;  wal -R
+exec --no-startup-id wal -a 80 -i ~/Pictures/wallpaper.jpg -n && feh --bg-fill ~/Pictures/wallpaper.jpg
 # Mouse scroll
 #exec --no-startup-id xinput set-prop 14 303 1
 # Hide cursor with unclutter
