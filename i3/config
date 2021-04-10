@@ -202,7 +202,7 @@ exec --no-startup-id wal -a 80 -i ~/Pictures/wallpaper.jpg -n && feh --bg-fill ~
 # Hide cursor with unclutter
 exec --no-startup-id unclutter --timeout 2
 # Redshift
-exec --no-startup-id redshift
+exec --no-startup-id redshift -l 69.64:18.98 -t 6500k:3000k
 
 #####################
 #		    #
@@ -215,3 +215,8 @@ exec --no-startup-id redshift
 bindsym $mod+d exec --no-startup-id rofi -show drun #-lines 32 -location 1 -width 30 
 # Lockscreen
 bindsym $mod+plus exec --no-startup-id bash ~/Documents/i3-pixel-lock/i3-pixel-lock.sh
+# Media keys
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioPause exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
