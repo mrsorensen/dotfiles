@@ -1,0 +1,36 @@
+#!/usr/bin/env sh
+
+
+# bsp or float (default: bsp)
+yabai -m config layout bsp
+
+# Override default layout for space 2 only
+yabai -m config --space 2 layout float
+
+# New window spawns to the left if vertical split, or top if horizontal split
+yabai -m config window_placement first_child
+
+# New window spawns to the right if vertical split, or bottom if horizontal split
+yabai -m config window_placement second_child
+
+# Set all padding and gaps to 20pt (default: 0)
+yabai -m config top_padding    40
+yabai -m config bottom_padding 40
+yabai -m config left_padding   40
+yabai -m config right_padding  40
+yabai -m config window_gap     40
+
+# Override gaps for space 2 only
+yabai -m config --space 2 window_gap 0
+
+# floating windows are always on top (default: off)
+yabai -m config window_topmost on
+
+yabai -m rule --add app="^Systemvalg$" manage=off layer=above sticky=on
+yabai -m rule --add app="^Systeminformasjon$" manage=off layer=above sticky=on
+yabai -m rule --add app="^System.*informasjon$" manage=off layer=above sticky=on
+yabai -m rule --add app="^PCSX2$" manage=off layer=above sticky=on
+yabai -m rule --add app="^Steam$" manage=off layer=above sticky=on
+yabai -m rule --add app="^VLC$" manage=off layer=above sticky=on
+yabai -m rule --add app="^PathOfExile$" manage=off layer=above sticky=on
+yabai -m rule --add app="^Arkivverktøy$" manage=off layer=above sticky=on
