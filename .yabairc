@@ -1,5 +1,7 @@
 #!/usr/bin/env sh
 
+outergap=150
+innergap=25
 
 # bsp or float (default: bsp)
 yabai -m config layout bsp
@@ -14,11 +16,11 @@ yabai -m config window_placement first_child
 yabai -m config window_placement second_child
 
 # Set all padding and gaps to 20pt (default: 0)
-yabai -m config top_padding    40
-yabai -m config bottom_padding 40
-yabai -m config left_padding   40
-yabai -m config right_padding  40
-yabai -m config window_gap     40
+yabai -m config top_padding    $outergap
+yabai -m config bottom_padding $outergap
+yabai -m config left_padding   $outergap
+yabai -m config right_padding  $outergap
+yabai -m config window_gap     $innergap
 
 # Override gaps for space 2 only
 yabai -m config --space 2 window_gap 0
