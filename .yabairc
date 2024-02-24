@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
-outergap=150
-innergap=25
+outergap=40
+innergap=10
 
 # bsp or float (default: bsp)
 yabai -m config layout bsp
@@ -28,9 +28,10 @@ yabai -m config --space 2 window_gap 0
 # floating windows are always on top (default: off)
 yabai -m config window_topmost on
 
-yabai -m rule --add app="^Systemvalg$" manage=off layer=above sticky=on
+yabai -m rule --add app="^Systeminnstillinger$" manage=off layer=above sticky=on
 yabai -m rule --add app="^Systeminformasjon$" manage=off layer=above sticky=on
 yabai -m rule --add app="^System.*informasjon$" manage=off layer=above sticky=on
+yabai -m rule --add app="^System.*innstillinger$" manage=off layer=above sticky=on
 yabai -m rule --add app="^PCSX2$" manage=off layer=above sticky=on
 yabai -m rule --add app="^Steam$" manage=off layer=above sticky=on
 yabai -m rule --add app="^VLC$" manage=off layer=above sticky=on
